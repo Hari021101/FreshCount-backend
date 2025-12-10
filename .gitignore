@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage
+
+# Production
+build/
+dist/
+
+# Misc
+.DS_Store
+.env
+.npm
+*.log
+
+# IDEs
+.vscode/
+.idea/
+
+# Secrets
+*.json
+!package.json
+!tsconfig.json
+!jsconfig.json
+!Frontend/package.json
+!backend/package.json
+freshcount-2134f-firebase-adminsdk-fbsvc-b2d5c24d0c.json

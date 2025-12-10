@@ -1,0 +1,317 @@
+/* Layout Component Styles */
+
+/* Container */
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: white;
+  border-right: 1px solid #e2e8f0;
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: visible;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+  padding: 20px 10px;
+}
+
+/* Toggle Button */
+.sidebar-toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ec4899;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 1001;
+  transition: right 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-toggle-btn {
+  right: 10px;
+}
+
+/* Logo Section */
+.sidebar-logo-section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-logo-section {
+  text-align: center;
+  margin-top: 40px; /* Push down when collapsed to center toggle button */
+}
+
+.sidebar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ec4899, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-logo {
+  font-size: 20px;
+}
+
+.sidebar-version {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Menu Section */
+.sidebar-menu {
+  margin-bottom: 30px;
+}
+
+.sidebar-menu-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+/* Navigation Links */
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 4px;
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: transparent;
+  color: #64748b;
+  font-weight: 500;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.sidebar-link:hover {
+  background-color: #fdf2f8;
+  color: #ec4899;
+}
+
+.sidebar-link.active {
+  background-color: #ec4899;
+  color: white;
+}
+
+.sidebar-link-icon {
+  font-size: 20px;
+}
+
+/* Admin Section */
+.sidebar-admin-section {
+  margin-bottom: 30px;
+}
+
+/* User Info Section */
+.sidebar-user-section {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.sidebar.collapsed .sidebar-user-section {
+  left: 10px;
+  right: 10px;
+}
+
+.sidebar-user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.sidebar.collapsed .sidebar-user-info {
+  gap: 0;
+  justify-content: center;
+}
+
+.sidebar-user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ec4899, #3b82f6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.sidebar-user-details {
+  overflow: hidden;
+}
+
+.sidebar-user-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-user-role {
+  font-size: 12px;
+  color: #ec4899;
+  text-transform: capitalize;
+}
+
+.sidebar-logout-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  color: #ef4444;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sidebar.collapsed .sidebar-logout-btn {
+  font-size: 18px;
+}
+
+.sidebar-logout-btn:hover {
+  background-color: #fef2f2;
+  border-color: #ef4444;
+}
+
+/* Main Content */
+.main-content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-height: 100vh;
+  transition: margin-left 0.3s ease;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  position: relative; /* Context for absolute children */
+}
+
+/* Mobile Responsiveness */
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 10px;
+  color: #64748b; /* Using existing color var literal if var not strictly defined */
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .layout-container {
+    padding-top: 0;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* In flow, so it scrolls with content */
+    margin-bottom: 1rem; 
+    align-self: flex-start; /* Don't stretch */
+    background: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    /* No absolute positioning means it sits at top of content and scrolls away */
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1002;
+    transform: translateX(0);
+    width: 280px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  }
+
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+    width: 280px;
+  }
+
+  .sidebar-toggle-btn {
+    display: flex;
+    right: 15px;
+  }
+
+  .main-content-wrapper {
+    margin-left: 0 !important;
+    width: 100%;
+  }
+
+  .main-content {
+    padding: 60px 20px 20px 20px;
+  }
+
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    backdrop-filter: blur(2px);
+  }
+}
