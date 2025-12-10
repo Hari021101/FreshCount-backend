@@ -16,6 +16,9 @@ dist/
 .npm
 *.log
 
+# Separate Repo
+Frontend/
+
 # IDEs
 .vscode/
 .idea/
